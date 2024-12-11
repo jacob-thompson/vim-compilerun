@@ -21,7 +21,7 @@ func! compilerun#CompileRun()
     elseif &filetype == "sh"
         exec "!time bash %"
     elseif &filetype == "python"
-        exec "!time python3 % --quiet"
+        exec "!time python3 %"
     elseif &filetype == "html"
         if g:env =~# "DARWIN"
             exec "!open % &"
@@ -38,7 +38,7 @@ func! compilerun#CompileRun()
         exec "!go build %<"
         exec "!time go run %"
     elseif &filetype == "lua"
-        exec "!time lua % --quiet"
+        exec "!time lua %"
     endif
 
 endfunc
