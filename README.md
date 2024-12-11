@@ -10,7 +10,7 @@ Lazy.nvim
 return { "jacob-thompson/vim-compilerun", name = "vim-compilerun" }
 ```
 
-## Exaple Vim Configuration
+## Example Vim Configuration
 
 
 The following maps the CompileRun function to `F5` in every mode:
