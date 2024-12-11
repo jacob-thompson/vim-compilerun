@@ -1,6 +1,6 @@
 # vim-compilerun
 
-A plugin to quickly compile and run scripts within Vim.
+A plugin to quickly compile and run scripts from within Vim
 
 ## Install
 
