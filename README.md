@@ -36,3 +36,9 @@ vim.keymap.set("v", "<F5>", function ()
     vim.cmd.CompileRun()
 end)
 ```
+
+## Usage
+
+```vimscript
+:CompileRun
+```
