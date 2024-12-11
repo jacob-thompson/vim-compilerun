@@ -1,4 +1,14 @@
 func! compilerun#CompileRun()
+    " Define a global variable containing the current environment's name
+    " if it hasn't been already defined.
+    if !exists('g:env')
+        if has('win64') || has('win32') || has('win16')
+            let g:env = 'WINDOWS'
+        else
+            let g:env = toupper(substitute(system('uname'), '\n', '', ''))
+        endif
+    endif
+
     exec "w"
 
     if &filetype == 'c'
@@ -15,12 +25,14 @@ func! compilerun#CompileRun()
     elseif &filetype == 'python'
         exec "!time python3 %"
     elseif &filetype == 'html'
-        if has('macunix')
+        if g:env == "DARWIN"
             exec "!open % &"
-        elseif has('unix')
+        elseif g:env == "LINUX"
             exec "!xdg-open % &"
-        elseif has('win32') || has('win32unix')
+        elseif g:env == "WINDOWS" || g:env == "MINGW"
             exec "!start % &"
+        elseif g:env == "CYGWIN"
+            exec "!cygstart % &"
         else
             exec "!google-chrome % &"
         endif
