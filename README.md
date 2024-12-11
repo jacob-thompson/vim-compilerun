@@ -31,20 +31,22 @@ return { "jacob-thompson/vim-compilerun", name = "vim-compilerun" }
 ## Example Vim Configuration
 
 
-The following vimscript code maps CompileRun to `F5` in `Normal` and `Insert` mode:
+The following vimscript code maps CompileRun to `F5` in the `Normal`, `Insert`, and `Visual` modes:
 
 ```vimscript
-map <F5> :CompileRun<CR>
-imap <F5> <Esc>:CompileRun<CR>
+map <F5> <Cmd>CompileRun<CR>
+imap <F5> <Esc><Cmd>CompileRun<CR>
+vmap <F5> <Esc><Cmd>CompileRun<CR>
 ```
 
 ## Example Neovim Configuration
 
-The following lua code maps CompileRun to `F5` in `Normal` and `Insert` mode:
+The following lua code maps CompileRun to `F5` in the `Normal`, `Insert`, and `Visual` modes:
 
 ```lua
-vim.keymap.set("n", "<F5>", "<cmd>CompileRun<CR>")
-vim.keymap.set("i", "<F5>", "<Esc><cmd>CompileRun<CR>")
+vim.keymap.set("n", "<F5>", "<Cmd>CompileRun<CR>")
+vim.keymap.set("i", "<F5>", "<Esc><Cmd>CompileRun<CR>")
+vim.keymap.set("v", "<F5>", "<Esc><Cmd>CompileRun<CR>")
 ```
 
 ## Usage
