@@ -23,6 +23,7 @@ func! CompileRun#CompileRun()
             exec "!start % &"
         else
             exec "!google-chrome % &"
+        endif
     elseif &filetype == 'go'
         exec "!go build %<"
         exec "!time go run %"
