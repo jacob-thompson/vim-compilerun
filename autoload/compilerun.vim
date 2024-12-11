@@ -15,7 +15,14 @@ func! CompileRun#CompileRun()
     elseif &filetype == 'python'
         exec "!time python3 %"
     elseif &filetype == 'html'
-        exec "!google-chrome % &"
+        if has('macunix')
+            exec "!open % &"
+        elseif has('unix')
+            exec "!xdg-open % &"
+        elseif has('win32') || has('win32unix')
+            exec "!start % &"
+        else
+            exec "!google-chrome % &"
     elseif &filetype == 'go'
         exec "!go build %<"
         exec "!time go run %"
