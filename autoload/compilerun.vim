@@ -37,6 +37,8 @@ func! compilerun#CompileRun()
     elseif &filetype == "go"
         exec "!go build %<"
         exec "!time go run %"
+    elseif &filetype == "lua"
+        exec "!time lua %"
     endif
 
 endfunc
