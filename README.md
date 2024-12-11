@@ -1,4 +1,4 @@
-# CompileRun
+# vim-compilerun
 
 A plugin to quickly compile and run scripts within Vim.
 
@@ -7,7 +7,7 @@ A plugin to quickly compile and run scripts within Vim.
 Lazy.nvim
 
 ```lua
-return { "jacob-thompson/CompileRun.vim", name = "CompileRun" }
+return { "jacob-thompson/vim-compilerun", name = "vim-compilerun" }
 ```
 
 ## Exaple Vim Configuration
