@@ -16,9 +16,9 @@ return { "jacob-thompson/vim-compilerun", name = "vim-compilerun" }
 The following maps the CompileRun function to `F5` in `Normal` and `Insert` mode:
 
 ```vimscript
-map <F5> :call CompileRun#CompileRun()<CR>
+map <F5> :CompileRun<CR>
 
-imap <F5> <Esc>:call CompileRun#CompileRun()<CR>
+imap <F5> <Esc>:CompileRun<CR>
 ```
 
 ## Example Neovim Configuration

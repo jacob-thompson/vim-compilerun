@@ -1,4 +1,4 @@
-func! CompileRun#CompileRun()
+func! compilerun#CompileRun()
     exec "w"
 
     if &filetype == 'c'

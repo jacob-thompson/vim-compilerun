@@ -8,4 +8,4 @@ if exists("g:loaded_compilerun")
 endif
 let g:loaded_compilerun = 1
 
-command! -nargs=0 CompileRun call CompileRun#CompileRun()
+command! -nargs=0 CompileRun call compilerun#CompileRun()
