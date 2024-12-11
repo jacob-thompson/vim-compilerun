@@ -4,7 +4,7 @@ func! CompileRun#CompileRun()
     if &filetype == 'c'
         exec "!gcc % -o %<"
         exec "!time ./%<"
-    elseif &filetype == 'cpp'
+    elseif &filetype == 'cpp' || &filetype == 'cxx' || &filetype == 'cc'
         exec "!g++ % -o %<"
         exec "!time ./%<"
     elseif &filetype == 'java'
