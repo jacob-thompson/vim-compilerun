@@ -39,8 +39,6 @@ func! compilerun#CompileRun()
     elseif &filetype == 'go'
         exec "!go build %<"
         exec "!time go run %"
-    elseif &filetype == 'matlab'
-        exec "!time octave %"
     endif
 
 endfunc
