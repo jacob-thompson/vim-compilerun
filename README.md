@@ -35,7 +35,6 @@ The following vimscript code maps CompileRun to `F5` in `Normal` and `Insert` mo
 
 ```vimscript
 map <F5> :CompileRun<CR>
-
 imap <F5> <Esc>:CompileRun<CR>
 ```
 
@@ -44,12 +43,8 @@ imap <F5> <Esc>:CompileRun<CR>
 The following lua code maps CompileRun to `F5` in `Normal` and `Insert` mode:
 
 ```lua
-vim.keymap.set("n", "<F5>", vim.cmd.CompileRun)
-
-vim.keymap.set("i", "<F5>", function ()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-c>", true, false, true), "n", true)
-    vim.cmd.CompileRun()
-end)
+vim.keymap.set("n", "<F5>", "<cmd>CompileRun<CR>")
+vim.keymap.set("i", "<F5>", "<Esc><cmd>CompileRun<CR>")
 ```
 
 ## Usage
