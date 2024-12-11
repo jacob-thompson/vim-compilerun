@@ -7,6 +7,7 @@ func! compilerun#CompileRun()
         endif
     endif
 
+    exec "echo 'writing...'"
     exec "w"
 
     if &filetype == "c"
