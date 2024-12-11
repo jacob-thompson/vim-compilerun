@@ -4,7 +4,7 @@ A plugin to quickly compile and run scripts within Vim.
 
 ## Install
 
-Lazy.vim
+Lazy.nvim
 
 ```lua
 return { "jacob-thompson/CompileRun.vim", name = "CompileRun" }
