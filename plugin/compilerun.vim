@@ -12,4 +12,4 @@ endif
 let g:loaded_compilerun = 1
 
 " Exposes the plugin's functions for use as commands in Vim.
-command! -nargs=0 CompileRun call compilerun#CompileRun()
+command! -nargs=0 CompileRun call CompileRun#CompileRun()
