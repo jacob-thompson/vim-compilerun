@@ -4,7 +4,25 @@ A plugin to quickly compile and run scripts from within Vim
 
 ## Install
 
-Lazy.nvim
+[Vundle.vim](https://github.com/gmarik/Vundle.vim)
+
+```vimscript
+Plugin 'jacob-thompson/vim-compilerun'
+```
+
+[vim-plug](https://github.com/junegunn/vim-plug)
+
+```vimscript
+Plug 'jacob-thompson/vim-compilerun'
+```
+
+[vim-pathogen](https://github.com/tpope/vim-pathogen)
+
+```bash
+git clone https://github.com/jacob-thompson/vim-compilerun.git ~/.vim/bundle/vim-compilerun
+```
+
+[Lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
 return { "jacob-thompson/vim-compilerun", name = "vim-compilerun" }
