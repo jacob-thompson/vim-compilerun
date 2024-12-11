@@ -25,13 +25,13 @@ func! compilerun#CompileRun()
     elseif &filetype == 'python'
         exec "!time python3 %"
     elseif &filetype == 'html'
-        if g:env == "DARWIN"
+        if g:env =~# "DARWIN"
             exec "!open % &"
-        elseif g:env == "LINUX"
+        elseif g:env =~# "LINUX"
             exec "!xdg-open % &"
-        elseif g:env == "WINDOWS" || g:env == "MINGW"
+        elseif g:env =~# "WINDOWS" || g:env =~# "MINGW"
             exec "!start % &"
-        elseif g:env == "CYGWIN"
+        elseif g:env =~# "CYGWIN"
             exec "!cygstart % &"
         else
             exec "!google-chrome % &"
