@@ -14,7 +14,7 @@ func! compilerun#CompileRun()
     elseif &filetype == "cpp"
         exec "!g++ % -o %< && time ./%<"
     elseif &filetype == "java"
-        exec "!javac % && time java %<"
+        exec "!javac % && time java %"
     elseif &filetype == "sh"
         exec "!time bash %"
     elseif &filetype == "python"
