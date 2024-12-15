@@ -10,14 +10,11 @@ func! compilerun#CompileRun()
     exec "w"
 
     if &filetype == "c"
-        exec "!gcc % -o %<"
-        exec "!time ./%<"
+        exec "!gcc % -o %< && time ./%<"
     elseif &filetype == "cpp"
-        exec "!g++ % -o %<"
-        exec "!time ./%<"
+        exec "!g++ % -o %< && time ./%<"
     elseif &filetype == "java"
-        exec "!javac %"
-        exec "!time java %"
+        exec "!javac % && time java %<"
     elseif &filetype == "sh"
         exec "!time bash %"
     elseif &filetype == "python"
@@ -37,8 +34,7 @@ func! compilerun#CompileRun()
             exec "!google-chrome % &"
         endif
     elseif &filetype == "go"
-        exec "!go build %<"
-        exec "!time go run %"
+        exec "!go build %< && time go run %"
     elseif &filetype == "lua"
         exec "!time lua %"
     endif
