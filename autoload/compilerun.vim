@@ -14,11 +14,13 @@ func! compilerun#CompileRun()
             exec "!gcc % -o %<.exe && time ./%<.exe && del %<.exe"
         else
             exec "!gcc % -o %< && time ./%< && rm %<"
+        endif
     elseif &filetype == "cpp"
         if g:env =~# "WINDOWS"
             exec "!g++ % -o %<.exe && time ./%<.exe && del %<.exe"
         else
             exec "!g++ % -o %< && time ./%< && rm %<"
+        endif
     elseif &filetype == "java"
         exec "!javac % && time java %"
     elseif &filetype == "sh"
