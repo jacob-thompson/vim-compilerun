@@ -10,9 +10,15 @@ func! compilerun#CompileRun()
     exec "w"
 
     if &filetype == "c"
-        exec "!gcc % -o %< && time ./%<"
+        if g:env =~# "WINDOWS"
+            exec "!gcc % -o %<.exe && time ./%<.exe && del %<.exe"
+        else
+            exec "!gcc % -o %< && time ./%< && rm %<"
     elseif &filetype == "cpp"
-        exec "!g++ % -o %< && time ./%<"
+        if g:env =~# "WINDOWS"
+            exec "!g++ % -o %<.exe && time ./%<.exe && del %<.exe"
+        else
+            exec "!g++ % -o %< && time ./%< && rm %<"
     elseif &filetype == "java"
         exec "!javac % && time java %"
     elseif &filetype == "sh"
