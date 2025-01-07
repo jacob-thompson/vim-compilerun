@@ -60,7 +60,7 @@ func! compilerun#CompileRun()
             exec "!del %<.exe"
         else
             exec "!zig build-exe % && time ./%<"
-            exec "!rm %<"
+            exec "!rm %< && rm %<.o"
         endif
     endif
 
