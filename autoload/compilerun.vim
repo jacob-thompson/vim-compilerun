@@ -45,6 +45,12 @@ func! compilerun#CompileRun()
         exec "!go build %< && time go run %"
     elseif &filetype == "lua"
         exec "!time lua %"
+    elseif &filetype == "zig"
+        if g:env =~# "WINDOWS"
+            exec "!zig build-exe % && time ./%<.exe && del %<.exe"
+        else
+            exec "!zig build-exe % && time ./%< && rm %<"
+        endif
     endif
 
 endfunc
