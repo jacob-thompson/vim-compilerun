@@ -31,6 +31,7 @@ func! compilerun#CompileRun()
             exec "!del %<.class"
         else
             exec "!rm %<.class"
+        endif
     elseif &filetype == "sh"
         exec "!time bash %"
     elseif &filetype == "python"
