@@ -11,18 +11,26 @@ func! compilerun#CompileRun()
 
     if &filetype == "c"
         if g:env =~# "WINDOWS"
-            exec "!gcc % -o %<.exe && time ./%<.exe && del %<.exe"
+            exec "!gcc % -o %<.exe && time ./%<.exe"
+            exec "!del %<.exe"
         else
-            exec "!gcc % -o %< && time ./%< && rm %<"
+            exec "!gcc % -o %< && time ./%<"
+            exec "!rm %<"
         endif
     elseif &filetype == "cpp"
         if g:env =~# "WINDOWS"
-            exec "!g++ % -o %<.exe && time ./%<.exe && del %<.exe"
+            exec "!g++ % -o %<.exe && time ./%<.exe"
+            exec "!del %<.exe"
         else
-            exec "!g++ % -o %< && time ./%< && rm %<"
+            exec "!g++ % -o %< && time ./%<"
+            exec "!rm %<"
         endif
     elseif &filetype == "java"
         exec "!javac % && time java %"
+        if g:env =~# "WINDOWS"
+            exec "!del %<.class"
+        else
+            exec "!rm %<.class"
     elseif &filetype == "sh"
         exec "!time bash %"
     elseif &filetype == "python"
@@ -47,9 +55,11 @@ func! compilerun#CompileRun()
         exec "!time lua %"
     elseif &filetype == "zig"
         if g:env =~# "WINDOWS"
-            exec "!zig build-exe % && time ./%<.exe && del %<.exe"
+            exec "!zig build-exe % && time ./%<.exe"
+            exec "!del %<.exe"
         else
-            exec "!zig build-exe % && time ./%< && rm %<"
+            exec "!zig build-exe % && time ./%<"
+            exec "!rm %<"
         endif
     endif
 
