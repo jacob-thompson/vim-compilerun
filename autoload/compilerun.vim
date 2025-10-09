@@ -11,18 +11,34 @@ func! compilerun#CompileRun()
 
     if &filetype == "c"
         if g:env =~# "WINDOWS"
-            exec "!cc % -o %<.exe && time ./%<.exe"
+            if expand('%:p') =~ '^[A-Za-z]:\\'
+                exec "!cc % -o %<.exe && time .%<.exe"
+            else
+                exec "!cc % -o %<.exe && time ./%<.exe"
+            endif
             exec "!del %<.exe"
         else
-            exec "!cc % -o %< && time ./%<"
+            if expand('%:p') =~ '^/'
+                exec "!cc % -o %< && time .%<"
+            else
+                exec "!cc % -o %< && time ./%<"
+            endif
             exec "!rm %<"
         endif
     elseif &filetype == "cpp"
         if g:env =~# "WINDOWS"
-            exec "!c++ % -o %<.exe && time ./%<.exe"
+            if expand('%:p') =~ '^[A-Za-z]:\\'
+                exec "!c++ % -o %<.exe && time .%<.exe"
+            else
+                exec "!c++ % -o %<.exe && time ./%<.exe"
+            endif
             exec "!del %<.exe"
         else
-            exec "!c++ % -o %< && time ./%<"
+            if expand('%:p') =~ '^/'
+                exec "!c++ % -o %< && time .%<"
+            else
+                exec "!c++ % -o %< && time ./%<"
+            endif
             exec "!rm %<"
         endif
     elseif &filetype == "java"
