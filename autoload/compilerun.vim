@@ -11,14 +11,14 @@ func! compilerun#CompileRun()
 
     if &filetype == "c"
         if g:env =~# "WINDOWS"
-            if expand('%:p') =~ '^[A-Za-z]:\\'
+            if expand('%:p') == expand('%')
                 exec "!cc % -o %<.exe && time %<.exe"
             else
                 exec "!cc % -o %<.exe && time ./%<.exe"
             endif
             exec "!del %<.exe"
         else
-            if expand('%:p') =~ '^/'
+            if expand('%:p') == expand('%')
                 exec "!cc % -o %< && time %<"
             else
                 exec "!cc % -o %< && time ./%<"
@@ -27,14 +27,14 @@ func! compilerun#CompileRun()
         endif
     elseif &filetype == "cpp"
         if g:env =~# "WINDOWS"
-            if expand('%:p') =~ '^[A-Za-z]:\\'
+            if expand('%:p') == expand('%')
                 exec "!c++ % -o %<.exe && time %<.exe"
             else
                 exec "!c++ % -o %<.exe && time ./%<.exe"
             endif
             exec "!del %<.exe"
         else
-            if expand('%:p') =~ '^/'
+            if expand('%:p') == expand('%')
                 exec "!c++ % -o %< && time %<"
             else
                 exec "!c++ % -o %< && time ./%<"
