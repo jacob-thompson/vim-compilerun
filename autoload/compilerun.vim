@@ -46,6 +46,7 @@ function! compilerun#run() abort
   \ 'ruby': ['ruby {src}'],
   \ 'lua':  ['lua {src}'],
   \ 'rust': ['rustc {src} -o {out}', '{run_cmd}'],
+  \ 'swift': ['swiftc {src} -o {out}', '{run_cmd}'],
   \ 'go':   ['go build -o {out} {src}', '{run_cmd}'],
   \ 'zig':  ['zig build-exe -O ReleaseFast -o {out} {src}', '{run_cmd}'],
   \ 'html': ['{open_cmd}']
