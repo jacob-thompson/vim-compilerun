@@ -1,7 +1,7 @@
-" Autoload: compilerun
-" Provides compilerun#run() to compile/run the current buffer in a modern, safe way.
+" Autoload: quickrun
+" Provides quickrun#run() to compile/run the current buffer in a modern, safe way.
 
-function! compilerun#run() abort
+function! quickrun#run() abort
   " Basic checks
   if expand('%') ==# ''
     echoerr 'No file in buffer to run'
