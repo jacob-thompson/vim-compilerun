@@ -89,15 +89,6 @@ function! compilerun#run() abort
     let l:cmds[i] = substitute(l:cmds[i], '{run_cmd}', l:run_cmd, 'g')
   endfor
 
-  " If handler produces an output file, schedule cleanup after running
-  if match(join(s:handlers[l:ft]), '{out}') != -1
-    if l:platform ==# 'windows'
-      call add(l:cmds, 'del /Q ' . s:esc(l:out))
-    else
-      call add(l:cmds, 'rm -f ' . s:esc(l:out))
-    endif
-  endif
-
   " Join with ' && ' so subsequent commands only run on success
   let l:full = join(l:cmds, ' && ')
 
